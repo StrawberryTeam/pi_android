@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">卡通世界</string>
+    <string name="network_error">网络不给力,请检查后再试</string>
+</resources>

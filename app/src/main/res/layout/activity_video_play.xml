@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    tools:context="com.zlizhe.pi.cartoon.VideoPlayActivity">
+
+
+
+    <SurfaceView
+        android:id="@+id/surfaceView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center"
+        >
+
+        <ImageView
+            android:id="@+id/image_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:scaleType="center"
+            android:visibility="invisible"
+            />
+
+        <TextView
+            android:id="@+id/textView_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:scaleType="center"
+            android:gravity="center"
+            android:visibility="invisible"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:background="#88000000"
+            android:textSize="30dp"
+            android:textColor="#ffffff" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+
+        <!-- 播放中控制面板 -->
+        <LinearLayout
+            android:id="@+id/partView"
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_gravity="bottom"
+            android:background="#999999"
+            android:visibility="invisible"
+            >
+
+            <WebView android:id="@+id/webviewPart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#999999"
+                >
+            </WebView>
+
+        </LinearLayout>
+    <!--<Button-->
+    <!--android:layout_width="50dp"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:onClick="next"-->
+    <!--/>-->
+
+    </LinearLayout>
+
+    <!-- 进度条 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#88000000"
+        android:gravity="center_horizontal"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
+
+
+        <TextView
+            android:id="@+id/textView_showTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:focusable="false"
+            android:layout_centerVertical="true"
+            android:textColor="#ffffff" />
+
+        <SeekBar
+            android:id="@+id/seekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/textView_showTime"
+            android:layout_toRightOf="@id/textView_showTitle"
+            android:gravity="center"
+            android:focusable="false" />
+
+        <TextView
+            android:id="@+id/textView_showTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:focusable="false"
+            android:layout_centerVertical="true"
+            android:textColor="#ffffff" />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
