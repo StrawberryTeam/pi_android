@@ -31,7 +31,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     //android 平台
-    public final static String PI_URL = "http://pi.zlizhe.com/";
+    public final static String PI_URL = "file:///android_asset/www/play.html";
 
     //已经跳过播放时间的总次数
     public static int CURRENT_PLAY_NUM = 1;
@@ -84,6 +84,9 @@ public class MainActivity extends AppCompatActivity {
         webview.getSettings().setDomStorageEnabled(true);
         //设置在WebView内部是否允许访问文件
         webview.getSettings().setAllowFileAccess(true);
+        webview.getSettings().setAllowContentAccess(true); // 允许访问 content:// URLs
+        webview.getSettings().setAllowFileAccessFromFileURLs(true); // 允许 file:// URL 加载其他 file:// URL
+        webview.getSettings().setAllowUniversalAccessFromFileURLs(true); // 允许 file:// URL 加载任何来源
         //让WebView支持播放插件
         webview.getSettings().setPluginState(WebSettings.PluginState.ON);
         //设置WebView缓存模式 默认断网情况下不缓存
@@ -107,8 +110,8 @@ public class MainActivity extends AppCompatActivity {
         //添加 header 标识 platform = 1 与用户
         Map<String, String> headerMap = new HashMap<String, String>();
         //put all headers in this header map
-        headerMap.put("CARTOON", "{\"platform\": 1, \"uid\": "+ UID +"}");
-        webview.loadUrl(PI_URL, headerMap);
+//        headerMap.put("CARTOON", "{\"platform\": 1, \"uid\": "+ UID +"}");
+        webview.loadUrl(PI_URL);
         //允许 JS fun app 调用
         webview.addJavascriptInterface(new WebViewJavaScriptInterface(this), "android");
     }
@@ -196,27 +199,27 @@ public class MainActivity extends AppCompatActivity {
         }
 
         public void onLoadResource (WebView view, String url) {
-            if (running > 0) {
-                if (progressDialog == null) {
-                    progressDialog = new ProgressDialog(MainActivity.this);
-                    progressDialog.setMessage("Loading...");
-                    progressDialog.show();
-                }
-            }
+//            if (running > 0) {
+//                if (progressDialog == null) {
+//                    progressDialog = new ProgressDialog(MainActivity.this);
+//                    progressDialog.setMessage("Loading...");
+//                    progressDialog.show();
+//                }
+//            }
 
         }
         public void onPageFinished(WebView view, String url) {
 
-            try{
-                if (--running == 0){
-                    if (progressDialog.isShowing()) {
-                        progressDialog.dismiss();
-                        progressDialog = null;
-                    }
-                }
-            }catch(Exception exception){
-                exception.printStackTrace();
-            }
+//            try{
+//                if (--running == 0){
+//                    if (progressDialog.isShowing()) {
+//                        progressDialog.dismiss();
+//                        progressDialog = null;
+//                    }
+//                }
+//            }catch(Exception exception){
+//                exception.printStackTrace();
+//            }
         }
     }
 

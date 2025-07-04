@@ -19,11 +19,7 @@ public class BootReceiver extends BroadcastReceiver {
         if(intent.getAction().equals("android.intent.action.BOOT_COMPLETED")) {     // boot
             final Intent intent2 = new Intent(context, MainActivity.class);
             intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            new Handler().postDelayed(new Runnable(){
-                public void run() {
-                    context.startActivity(intent2);
-                }
-            }, 5000); //联通认证需要时间
+            context.startActivity(intent2);
 //          intent2.setAction("android.intent.action.MAIN");
 //          intent2.addCategory("android.intent.category.LAUNCHER");
         }
